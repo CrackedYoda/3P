@@ -1,0 +1,17 @@
+
+<%- include ("header"); -%> 
+
+<% const date = new Date().getDay(); %> 
+<% if (date === 6 || date === 0 ) { %>  <h1>Weekend</h1> <% } else { %>
+    <h1>Weekday</h1>
+ <% } %>
+
+
+
+
+<%- include ('blogs'); -%> 
+
+
+
+
+<%-  include ("footer"); -%> 
