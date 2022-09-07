@@ -45,16 +45,10 @@ var _blogbody = String(req.body.blogbody);
     
     blogHold.save();
 
-    blog.find();
-blogpost.push({head:blogHold.blogtitle,Snippet: blogHold.blogbody});
 
 
   res.redirect('/');
 
-
-  document.getElementById('deleteblog').onclick(()=>{
-    
-  })
 
 });
 
@@ -64,8 +58,12 @@ blogpost.push({head:blogHold.blogtitle,Snippet: blogHold.blogbody});
 
 
 app.get('/',(req,res)=> {
+blog.find({},(err,items)=>{
 
-res.render('index', {blogpost:blogpost});
+
+  res.render('index', {blog:items});
+
+});
 
 })
   
@@ -78,7 +76,14 @@ res.render('index', {blogpost:blogpost});
 
 
 
-app.get("/COP3-BLOG",(req,res) =>  {res.render('COP3-BLOG',{blogs:blogpost}); });
+app.get("/COP3-BLOG",(req,res) => { blog.find({},(err,items)=>{
+
+
+  res.render('COP3-BLOG', {blog:items});
+
+});
+
+});
 
 
 

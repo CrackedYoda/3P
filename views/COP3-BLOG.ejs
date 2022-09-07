@@ -100,14 +100,15 @@ width: 100px;
 		</ul>
 	</nav>
 
-	<% for (var blog of blogpost) { %>
-        <div class="body-blog">
-          <h1 class="head-blog"><%= blog.head %> </h1>
-          <h3 class="snippet-blog"><%= blog.Snippet %> </h3>
-          <button class="delete-blog" id="deleteblog">delete</button>
-          </div>
-    <% } %>
+	
 
+    <% blog.forEach((item)=>{  %>
+      <div class="body-blog">
+        <h1 class="head-blog"><%= item.blogtitle %> </h1>
+        <h3 class="snippet-blog"><%= item.blogbody %> </h3>
+        <button class="delete-blog" id="deleteblog">delete</button>
+        </div>
+  <% }); %>
 
 
  
